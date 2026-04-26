@@ -1,0 +1,19 @@
+# Dipendenze Node.js
+node_modules/
+
+# File di ambiente (contengono password!)
+.env
+*.env.local
+
+# Log e file temporanei
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Cartelle di sistema
+.DS_Store
+Thumbs.db
+
+# Build di produzione (se useremo React/Vue in futuro)
+dist/
+build/
