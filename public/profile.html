@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>🪖 BE TActic - Profilo</title>
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body class="tactical-theme">
+    <div class="profile-container">
+      <!-- Header Profilo -->
+      <div class="profile-header">
+        <div class="avatar-placeholder">🪖</div>
+        <h2 id="profileNickname">Caricamento...</h2>
+        <p class="team-badge" id="profileTeam">Squadra: Nessuna</p>
+      </div>
+
+      <!-- Stats Grid -->
+      <div class="stats-grid">
+        <div class="stat-card">
+          <span class="stat-value" id="statMatches">0</span>
+          <span class="stat-label">Partite</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-value" id="statWins">0</span>
+          <span class="stat-label">Vittorie</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-value" id="statAccuracy">0%</span>
+          <span class="stat-label">Precisione</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-value" id="statKDR">0.0</span>
+          <span class="stat-label">K/D Ratio</span>
+        </div>
+      </div>
+
+      <!-- Info Aggiuntive -->
+      <div class="profile-info">
+        <p>📧 <span id="profileEmail">-</span></p>
+        <p>📅 Membro dal: <span id="profileDate">-</span></p>
+      </div>
+
+      <a href="/login.html" class="btn-secondary">🔙 Torna al Login</a>
+    </div>
+
+    <script src="/js/profile.js"></script>
+  </body>
+</html>

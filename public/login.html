@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>🪖 BE TActic - Accedi</title>
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body class="tactical-theme">
+    <div class="login-container">
+      <!-- Logo / Titolo -->
+      <div class="login-header">
+        <h1>🪖 BE TActic</h1>
+        <p>La community softair/airsoft</p>
+      </div>
+
+      <!-- Form di Login -->
+      <form id="loginForm" class="login-form">
+        <div class="form-group">
+          <label for="email">Email o Nickname</label>
+          <input
+            type="text"
+            id="email"
+            name="email"
+            required
+            placeholder="es. TacticalWolf92"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            required
+            placeholder="••••••••"
+          />
+        </div>
+
+        <button type="submit" class="btn-primary">🔐 Accedi</button>
+      </form>
+
+      <!-- Link per registrazione e recupero -->
+      <div class="login-footer">
+        <p>Non hai un account? <a href="/register.html">Crea account</a></p>
+        <p><a href="#">Password dimenticata?</a></p>
+      </div>
+    </div>
+
+    <script src="/js/login.js"></script>
+  </body>
+</html>
