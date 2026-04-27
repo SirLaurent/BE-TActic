@@ -10,6 +10,8 @@ app.use(express.static("public"));
 
 // Rotte di autenticazione
 const authRoutes = require("./routes/auth");
+const feedRoutes = require("./routes/feed");
+app.use("/api", feedRoutes);
 app.use("/api", authRoutes);
 
 // Pagine HTML
@@ -29,7 +31,32 @@ app.get("/profile", (req, res) => {
   res.sendFile(__dirname + "/public/profile.html");
 });
 
+app.get("/feed", (req, res) => {
+  res.sendFile(__dirname + "/public/feed.html");
+});
+
+app.get("/dashboard", (req, res) => {
+  res.sendFile(__dirname + "/public/dashboard.html");
+});
+
+// Redirect root alla dashboard se loggato, altrimenti login
+app.get("/", (req, res) => {
+  res.redirect("/dashboard");
+});
+
 // Avvio server
 app.listen(PORT, () => {
   console.log("Server BE TActic in ascolto su http://localhost:" + PORT);
+});
+const teamRoutes = require("./routes/teams");
+app.use("/api", teamRoutes);
+
+app.get("/teams", (req, res) => {
+  res.sendFile(__dirname + "/public/team.html");
+});
+const eventRoutes = require("./routes/events");
+app.use("/api", eventRoutes);
+
+app.get("/events", (req, res) => {
+  res.sendFile(__dirname + "/public/events.html");
 });

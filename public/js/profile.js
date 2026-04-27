@@ -1,12 +1,12 @@
-// 🪖 BE TActic - Gestione profilo
+// 🪖 BE TActic - Gestione profilo (VERSIONE CORRETTA ✅)
 
 document.addEventListener("DOMContentLoaded", async () => {
-  // Legge il parametro ?user= dall'URL
+  // 🔍 Priorità: 1) Parametro URL, 2) Utente loggato da localStorage
   const params = new URLSearchParams(window.location.search);
-  const nickname = params.get("user");
+  const nickname = params.get("user") || localStorage.getItem("beTactic_user");
 
   if (!nickname) {
-    alert("❌ Profilo non specificato");
+    alert("❌ Devi effettuare il login per vedere un profilo");
     window.location.href = "/login";
     return;
   }

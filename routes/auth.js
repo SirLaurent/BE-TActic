@@ -1,17 +1,16 @@
-// 🪖 BE TActic - Rotte di autenticazione (SICURE)
+// 🪖 BE TActic - Rotte di autenticazione (SICURE E COMPLETE)
 
 const express = require("express");
 const router = express.Router();
 const bcrypt = require("bcrypt");
 
-// Simuliamo un database in memoria (SOLO PER TEST!)
+// Database in memoria (SOLO PER TEST)
 const users = [];
 
-// Route: POST /api/register
+// 🔐 REGISTRAZIONE
 router.post("/register", async (req, res) => {
   const { nickname, email, password, confirmPassword } = req.body;
 
-  // Validazioni
   if (!nickname || !email || !password) {
     return res.status(400).json({ message: "Tutti i campi sono obbligatori" });
   }
@@ -24,7 +23,6 @@ router.post("/register", async (req, res) => {
       .json({ message: "La password deve avere almeno 8 caratteri" });
   }
 
-  // Controllo duplicati
   const existing = users.find(
     (u) => u.email === email || u.nickname === nickname,
   );
@@ -33,7 +31,6 @@ router.post("/register", async (req, res) => {
   }
 
   try {
-    // 🔐 Hash della password
     const saltRounds = 10;
     const hashedPassword = await bcrypt.hash(password, saltRounds);
 
@@ -41,7 +38,7 @@ router.post("/register", async (req, res) => {
       id: users.length + 1,
       nickname,
       email,
-      passwordHash: hashedPassword, // ← Salviamo l'hash, NON la password!
+      passwordHash: hashedPassword,
       team: "Nessuna",
       stats: { matches: 0, wins: 0, accuracy: 0 },
       createdAt: new Date(),
@@ -60,7 +57,7 @@ router.post("/register", async (req, res) => {
   }
 });
 
-// Route: POST /api/login
+// 🔐 LOGIN (con redirect al Feed)
 router.post("/login", async (req, res) => {
   const { email, password } = req.body;
 
@@ -70,14 +67,12 @@ router.post("/login", async (req, res) => {
       .json({ message: "Email e password sono obbligatori" });
   }
 
-  // Cerca utente
   const user = users.find((u) => u.email === email || u.nickname === email);
   if (!user) {
     return res.status(401).json({ message: "Credenziali non valide" });
   }
 
   try {
-    // 🔐 Confronta password inserita con hash salvato
     const match = await bcrypt.compare(password, user.passwordHash);
     if (!match) {
       return res.status(401).json({ message: "Credenziali non valide" });
@@ -85,10 +80,10 @@ router.post("/login", async (req, res) => {
 
     console.log("✅ Login riuscito:", user.nickname);
 
-    // Per ora passiamo il nickname nell'URL (temporaneo, vedremo le sessioni dopo)
+    // 🔁 Redirect al feed dopo il login
     res.json({
       message: "Login riuscito!",
-      redirect: `/profile?user=${user.nickname}`,
+      redirect: "/feed",
     });
   } catch (err) {
     console.error("Errore login:", err);
@@ -96,7 +91,7 @@ router.post("/login", async (req, res) => {
   }
 });
 
-// Route: GET /api/users/:nickname (Profilo pubblico)
+// 👤 PROFILO PUBBLICO
 router.get("/users/:nickname", (req, res) => {
   const user = users.find((u) => u.nickname === req.params.nickname);
 
@@ -104,7 +99,6 @@ router.get("/users/:nickname", (req, res) => {
     return res.status(404).json({ message: "Utente non trovato" });
   }
 
-  // ⚠️ NON inviamo mai la passwordHash al frontend!
   const { passwordHash, ...safeUser } = user;
   res.json(safeUser);
 });

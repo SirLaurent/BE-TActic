@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>🪖 BE TActic - Squadre</title>
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body class="tactical-theme">
+    <div id="app-navbar"></div>
+    <div class="teams-layout">
+      <header class="teams-header">
+        <h1>🏴 Centro Comando Squadre</h1>
+        <p>Crea, cerca o unisciti a un clan tattico</p>
+      </header>
+
+      <!-- La mia squadra -->
+      <section id="myTeamSection" class="my-team-section hidden">
+        <h2>🪖 La tua squadra</h2>
+        <div id="myTeamInfo"></div>
+      </section>
+
+      <!-- Crea Squadra -->
+      <section class="create-team-box">
+        <h3>➕ Crea Nuova Squadra</h3>
+        <form id="createTeamForm">
+          <input
+            type="text"
+            id="teamName"
+            placeholder="Nome squadra (es. Shadow Wolves)"
+            required
+            maxlength="30"
+          />
+          <textarea
+            id="teamDesc"
+            placeholder="Descrizione tattica..."
+            required
+            maxlength="200"
+          ></textarea>
+          <input
+            type="number"
+            id="teamMax"
+            placeholder="Membri max"
+            value="20"
+            min="5"
+            max="50"
+          />
+          <button type="submit" class="btn-primary">🚀 Crea Squadra</button>
+        </form>
+      </section>
+
+      <!-- Lista Squadre Pubbliche -->
+      <section class="teams-list-box">
+        <h3>📋 Squadre Disponibili</h3>
+        <div id="teamsListContainer">⏳ Caricamento...</div>
+      </section>
+    </div>
+
+    <script src="/js/team.js"></script>
+    <script src="/js/navbar.js"></script>
+  </body>
+</html>

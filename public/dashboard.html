@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>🪖 BE TActic - Home</title>
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body class="tactical-theme">
+    <div id="app-navbar"></div>
+
+    <main class="dashboard-layout">
+      <header class="dash-header">
+        <h1>🎖️ Benvenuto nella Base Operativa</h1>
+        <p id="dashGreeting">Caricamento profilo...</p>
+      </header>
+
+      <section class="dash-grid">
+        <a href="/feed" class="dash-card">
+          <span class="dash-icon">📡</span>
+          <h3>Feed Tattico</h3>
+          <p>Partite, equipaggiamento e aggiornamenti community</p>
+        </a>
+        <a href="/teams" class="dash-card">
+          <span class="dash-icon">🏴</span>
+          <h3>Squadre & Clan</h3>
+          <p>Crea, unisciti o gestisci il tuo reparto</p>
+        </a>
+        <a href="/profile" class="dash-card">
+          <span class="dash-icon">👤</span>
+          <h3>Il Tuo Profilo</h3>
+          <p>Statistiche, storico e impostazioni</p>
+        </a>
+        <a href="#" class="dash-card locked">
+          <span class="dash-icon">🗺️</span>
+          <h3>Mappa Eventi</h3>
+          <p>🔒 In arrivo nel prossimo update</p>
+        </a>
+      </section>
+    </main>
+
+    <script src="/js/navbar.js"></script>
+    <script>
+      document.getElementById("dashGreeting").textContent =
+        `Operatore: ${localStorage.getItem("beTactic_user") || "Ospite"}`;
+    </script>
+  </body>
+</html>

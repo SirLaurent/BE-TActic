@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>🪖 BE TActic - Mappa Eventi</title>
+    <!-- Leaflet CSS -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    />
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body class="tactical-theme">
+    <div id="app-navbar"></div>
+
+    <main class="events-layout">
+      <div id="map" class="map-container"></div>
+
+      <aside class="events-panel">
+        <h3>📌 Crea Evento</h3>
+        <form id="eventForm">
+          <input
+            type="text"
+            id="eventTitle"
+            placeholder="Nome partita/evento"
+            required
+            maxlength="50"
+          />
+          <textarea
+            id="eventDesc"
+            placeholder="Descrizione (es. 12vs12, campo boschivo...)"
+            maxlength="300"
+          ></textarea>
+          <label for="eventDate">📅 Data e Ora</label>
+          <input type="datetime-local" id="eventDate" required />
+          <input type="hidden" id="eventLat" />
+          <input type="hidden" id="eventLng" />
+          <p id="coordsHint" class="hint">
+            📍 Clicca sulla mappa per posizionare l'evento
+          </p>
+          <button
+            type="submit"
+            class="btn-primary"
+            id="createEventBtn"
+            disabled
+          >
+            🚀 Pubblica Evento
+          </button>
+        </form>
+        <hr class="divider" />
+        <h4>📋 Prossimi Eventi</h4>
+        <div id="eventsList">⏳ Caricamento...</div>
+      </aside>
+    </main>
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="/js/events.js"></script>
+    <script src="/js/navbar.js"></script>
+  </body>
+</html>

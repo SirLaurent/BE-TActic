@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>🪖 BE TActic - Feed</title>
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body class="tactical-theme">
+    <div id="app-navbar"></div>
+    <div class="feed-layout">
+      <!-- Header -->
+      <header class="feed-header">
+        <h1>📡 Bacheca Tattica</h1>
+        <p>Condividi partite, equipaggiamento e strategie</p>
+      </header>
+
+      <!-- Form Crea Post -->
+      <section class="post-creator">
+        <textarea
+          id="postContent"
+          placeholder="Cosa è successo in campo oggi? Max 500 caratteri..."
+          maxlength="500"
+        ></textarea>
+        <div class="post-actions">
+          <select id="postType">
+            <option value="generic">📝 Generico</option>
+            <option value="match">⚔️ Partita/Evento</option>
+            <option value="gear">🎒 Equipaggiamento</option>
+            <option value="photo">📷 Foto/Video</option>
+          </select>
+          <button id="publishBtn" class="btn-primary">🚀 Pubblica</button>
+        </div>
+        <small id="charCount">0/500</small>
+      </section>
+
+      <!-- Lista Post -->
+      <section id="feedContainer" class="feed-container">
+        <p class="loading-msg">⏳ Caricamento feed...</p>
+      </section>
+    </div>
+
+    <script src="/js/feed.js"></script>
+    <script src="/js/navbar.js"></script>
+  </body>
+</html>
