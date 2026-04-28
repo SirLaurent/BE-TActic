@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>🪖 BE TActic - Chat Tattica</title>
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body class="tactical-theme">
+    <div id="app-navbar"></div>
+
+    <main class="chat-layout">
+      <header class="chat-header">
+        <h2>📻 Canale Radio Generale</h2>
+        <span id="onlineCount" class="online-badge">🟢 0 online</span>
+      </header>
+
+      <div id="chatMessages" class="chat-messages">
+        <p class="system-msg">📡 Connessione al canale radio...</p>
+      </div>
+
+      <div class="chat-input-area">
+        <div id="typingIndicator" class="typing-indicator"></div>
+        <form id="chatForm">
+          <input
+            type="text"
+            id="chatInput"
+            placeholder="Trasmetti messaggio..."
+            autocomplete="off"
+          />
+          <button type="submit" class="btn-primary">📤 Invia</button>
+        </form>
+      </div>
+    </main>
+
+    ⚠️ IMPORTANTE: Socket.io DEVE essere caricato PRIMA di chat.js
+    <script src="https://cdn.socket.io/4.7.5/socket.io.min.js"></script>
+    <script src="/js/chat.js"></script>
+    <script src="/js/navbar.js"></script>
+  </body>
+</html>

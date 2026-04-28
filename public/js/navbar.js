@@ -22,7 +22,8 @@ document.addEventListener("DOMContentLoaded", () => {
         <li><a href="/teams" class="${currentPath === "/teams" ? "active" : ""}">🏴 Squadre</a></li>
         <li><a href="/profile" class="${currentPath.startsWith("/profile") ? "active" : ""}">👤 Profilo</a></li>
         <li><a href="/events" class="${currentPath === "/events" ? "active" : ""}">📅 Eventi</a></li>
-      </ul>
+        <li><a href="/chat" class="${currentPath === "/chat" ? "active" : ""}">💬 Chat</a></li>
+        </ul>
       <div class="nav-user">
         <span class="user-badge">👤 ${currentUser}</span>
         <button class="btn-logout" onclick="handleLogout()">🚪 Esci</button>
