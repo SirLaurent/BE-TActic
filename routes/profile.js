@@ -40,7 +40,6 @@ router.get("/api/profile/:nickname", (req, res) => {
     t.members.includes(req.params.nickname),
   );
   const teamName = teamData ? teamData[0] : "Nessuna";
-  const teamInfo = teamData ? teamData[1] : null;
 
   const userPosts = posts
     .filter((p) => p.author === req.params.nickname && p.type !== "story")

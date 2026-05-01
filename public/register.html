@@ -3,73 +3,136 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>🪖 BE TActic - Registrati</title>
+    <title>🪖 BE TACTIC - Registrazione</title>
     <link rel="stylesheet" href="/css/style.css" />
+    <style>
+      .auth-container {
+        max-width: 500px;
+        margin: 3rem auto;
+        background: var(--bg-panel);
+        border: 1px solid var(--border-color);
+        border-top: 3px solid var(--accent-orange);
+        border-radius: 4px;
+        padding: 2rem;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+      }
+      .auth-header {
+        text-align: center;
+        margin-bottom: 1.5rem;
+      }
+      .auth-header p {
+        color: var(--text-muted);
+        font-size: 0.85rem;
+        text-transform: uppercase;
+      }
+      .form-group {
+        margin-bottom: 1rem;
+      }
+      .form-group label {
+        display: block;
+        font-size: 0.8rem;
+        color: var(--text-muted);
+        margin-bottom: 0.3rem;
+      }
+      .form-group input {
+        width: 100%;
+        padding: 0.8rem;
+        background: #0a0a0a;
+        border: 1px solid #333;
+        color: var(--text-white);
+        font-family: var(--font-main);
+        text-transform: none;
+        border-radius: 2px;
+      }
+      .form-group input:focus {
+        outline: none;
+        border-color: var(--accent-orange);
+      }
+      .btn-submit {
+        width: 100%;
+        padding: 0.9rem;
+        background: var(--accent-orange);
+        color: #000;
+        border: none;
+        font-family: var(--font-main);
+        font-weight: 700;
+        text-transform: uppercase;
+        cursor: pointer;
+        border-radius: 2px;
+        transition: all 0.2s;
+        letter-spacing: 1px;
+      }
+      .btn-submit:hover {
+        background: var(--accent-gold);
+        box-shadow: 0 0 15px rgba(243, 156, 18, 0.4);
+      }
+      .auth-footer {
+        text-align: center;
+        margin-top: 1.5rem;
+        font-size: 0.85rem;
+        color: var(--text-muted);
+      }
+      .auth-footer a {
+        color: var(--accent-orange);
+        text-decoration: none;
+      }
+      .auth-footer a:hover {
+        text-decoration: underline;
+      }
+      small {
+        color: #666;
+        font-size: 0.75rem;
+        display: block;
+        margin-top: 0.2rem;
+      }
+    </style>
   </head>
-  <body class="tactical-theme">
-    <div class="login-container">
-      <div class="login-header">
-        <h1>🪖 Unisciti a BE TActic</h1>
-        <p>Crea il tuo profilo giocatore</p>
+  <body>
+    <div class="auth-container">
+      <div class="auth-header">
+        <h1 class="glitch-logo">BE TACTIC</h1>
+        <p>Sistema di Reclutamento Operativo</p>
       </div>
-
-      <form id="registerForm" class="login-form">
+      <form id="registerForm">
         <div class="form-group">
-          <label for="nickname">Nickname *</label>
-          <input
+          <label>NICKNAME OPERATORE *</label
+          ><input
             type="text"
             id="nickname"
-            name="nickname"
             required
-            placeholder="es. ShadowRecon"
             maxlength="20"
-          />
-          <small>Solo lettere, numeri e underscore. Max 20 caratteri.</small>
-        </div>
-
-        <div class="form-group">
-          <label for="email">Email *</label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            required
-            placeholder="tu@email.com"
+            placeholder="Es. ShadowRecon"
           />
         </div>
-
         <div class="form-group">
-          <label for="password">Password *</label>
-          <input
+          <label>EMAIL *</label
+          ><input type="email" id="email" required placeholder="tu@email.com" />
+        </div>
+        <div class="form-group">
+          <label>PASSWORD *</label
+          ><input
             type="password"
             id="password"
-            name="password"
             required
             minlength="8"
             placeholder="Minimo 8 caratteri"
-          />
-          <small>Usa maiuscole, numeri e simboli per maggiore sicurezza.</small>
+          /><small>Usa maiuscole, numeri e simboli per massima sicurezza</small>
         </div>
-
         <div class="form-group">
-          <label for="confirmPassword">Conferma Password *</label>
-          <input
+          <label>CONFERMA PASSWORD *</label
+          ><input
             type="password"
             id="confirmPassword"
-            name="confirmPassword"
             required
             placeholder="Ripeti la password"
           />
         </div>
-
-        <button type="submit" class="btn-primary">✅ Crea Account</button>
+        <button type="submit" class="btn-submit">CREA ACCOUNT</button>
       </form>
-
-      <div class="login-footer">
-        <p>Hai già un account? <a href="/login.html">Accedi</a></p>
+      <div class="auth-footer">
+        <p>Hai già un account? <a href="/login">ACCEDI</a></p>
       </div>
     </div>
-
     <script src="/js/register.js"></script>
   </body>
 </html>

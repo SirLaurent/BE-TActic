@@ -3,46 +3,149 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>🪖 BE TActic - Home</title>
+    <title>🪖 BE TACTIC - Dashboard</title>
     <link rel="stylesheet" href="/css/style.css" />
   </head>
-  <body class="tactical-theme">
+  <body>
     <div id="app-navbar"></div>
 
     <main class="dashboard-layout">
-      <header class="dash-header">
-        <h1>🎖️ Benvenuto nella Base Operativa</h1>
-        <p id="dashGreeting">Caricamento profilo...</p>
+      <!-- Secondary Header -->
+      <header class="sub-header">
+        <div class="sub-user-info">
+          <div class="sub-avatar">🪖</div>
+          <div>
+            <div class="sub-rank" id="subNickname">OPERATORE</div>
+            <div style="font-size: 0.75rem; color: #888">PC PREMIUM</div>
+          </div>
+          <nav class="sub-tabs">
+            <a href="/feed" class="active">MATCHES</a
+            ><a href="/events">EVENTS</a><a href="/teams">SQUADRE</a>
+          </nav>
+        </div>
+        <div class="sub-links">
+          <a href="#">STORE</a><a href="#">FORUMS ↗</a
+          ><a href="#" class="gold">PREMIUM</a>
+        </div>
       </header>
 
-      <section class="dash-grid">
-        <a href="/feed" class="dash-card">
-          <span class="dash-icon">📡</span>
-          <h3>Feed Tattico</h3>
-          <p>Partite, equipaggiamento e aggiornamenti community</p>
-        </a>
-        <a href="/teams" class="dash-card">
-          <span class="dash-icon">🏴</span>
-          <h3>Squadre & Clan</h3>
-          <p>Crea, unisciti o gestisci il tuo reparto</p>
-        </a>
-        <a href="/profile" class="dash-card">
-          <span class="dash-icon">👤</span>
-          <h3>Il Tuo Profilo</h3>
-          <p>Statistiche, storico e impostazioni</p>
-        </a>
-        <a href="#" class="dash-card locked">
-          <span class="dash-icon">🗺️</span>
-          <h3>Mappa Eventi</h3>
-          <p>🔒 In arrivo nel prossimo update</p>
-        </a>
+      <!-- Main Content -->
+      <section class="main-content">
+        <!-- Hero Section -->
+        <div class="hero-section">
+          <div class="hero-overlay">
+            <h1 class="hero-title glitch-logo">BE TACTIC</h1>
+            <p class="hero-subtitle">
+              IL CAMPO DI BATTAGLIA DEFINITIVO PER IL SOFTAIR
+            </p>
+          </div>
+        </div>
+
+        <!-- Stats Card -->
+        <div class="stats-card">
+          <div class="stats-header">
+            <span class="stats-name" id="statsName">METALUP027</span
+            ><span class="stats-badge">PREMIUM</span>
+          </div>
+          <div class="stats-rank">
+            <span class="rank-number">14</span>
+            <div>
+              <div style="font-size: 0.8rem; color: #888">SOLDIER PC</div>
+              <div class="rank-stars">★ ★ ★ ★</div>
+            </div>
+          </div>
+          <div class="xp-bar-bg"><div class="xp-bar-fill"></div></div>
+          <div class="xp-text">25,060 / 37,000 XP</div>
+          <div class="stats-visual">🎯</div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="action-buttons">
+          <button
+            class="btn-action primary"
+            onclick="window.location.href = '/feed'"
+          >
+            PLAY MULTIPLAYER
+          </button>
+          <button class="btn-action" onclick="window.location.href = '/events'">
+            PLAY CAMPAIGN
+          </button>
+          <button class="btn-action" onclick="window.location.href = '/chat'">
+            TEST RANGE
+          </button>
+        </div>
+
+        <!-- Lower Grid -->
+        <div class="lower-grid">
+          <div class="panel">
+            <div class="panel-title">RECOMMENDED SERVER</div>
+            <div class="panel-content" id="serverFeed">
+              Caricamento partite consigliate...
+            </div>
+          </div>
+          <div class="panel">
+            <div class="panel-title">SQUADRE ATTIVE</div>
+            <div class="panel-content" id="teamFeed">
+              Caricamento squadriglie...
+            </div>
+          </div>
+          <div class="panel">
+            <div class="panel-title">BATTLEPACKS</div>
+            <div class="panel-content">
+              <span class="battlepack-count">3</span> UNOPENED<br />
+              <div style="margin-top: 0.5rem">
+                <span class="battlepack-item gold"></span
+                ><span class="battlepack-item"></span
+                ><span class="battlepack-item"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Right Sidebar -->
+      <aside class="sidebar-social">
+        <div class="social-header">
+          <h3>FRIENDS</h3>
+          <span style="color: var(--accent-gold)">0 ONLINE</span>
+        </div>
+        <ul class="friend-list">
+          <li class="friend-item">EA [0]</li>
+          <li class="friend-item">VIEW OFFLINE FRIENDS</li>
+        </ul>
+        <button
+          class="btn-create-chat"
+          onclick="window.location.href = '/direct'"
+        >
+          CREATE CHAT
+        </button>
+      </aside>
+
+      <!-- Bottom Feed -->
+      <section class="bottom-feed">
+        <div class="feed-tabs">
+          <div class="feed-tab active">BATTLE FEED</div>
+          <div class="feed-tab">GAME ACTIVITY</div>
+        </div>
+        <div class="feed-input">
+          <input
+            type="text"
+            id="statusUpdate"
+            placeholder="Update your status text..."
+          />
+        </div>
+        <div
+          id="feedContainer"
+          style="padding: 1rem; max-height: 200px; overflow-y: auto"
+        >
+          <p style="color: #666; font-size: 0.9rem">
+            Nessun aggiornamento recente.
+          </p>
+        </div>
       </section>
     </main>
 
     <script src="/js/navbar.js"></script>
-    <script>
-      document.getElementById("dashGreeting").textContent =
-        `Operatore: ${localStorage.getItem("beTactic_user") || "Ospite"}`;
-    </script>
+    <script src="/js/dashboard.js"></script>
   </body>
 </html>

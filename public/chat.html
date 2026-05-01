@@ -3,37 +3,139 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>🪖 BE TActic - Chat Tattica</title>
+    <title>BE TACTIC - Chat Globale</title>
     <link rel="stylesheet" href="/css/style.css" />
+    <style>
+      .chat-blg {
+        max-width: 900px;
+        margin: 1rem auto;
+        padding: 0 1rem;
+        height: calc(100vh - 80px);
+        display: flex;
+        flex-direction: column;
+      }
+      .chat-header-blg {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1rem;
+      }
+      .chat-header-blg h2 {
+        color: var(--accent-orange);
+        font-size: 1.2rem;
+      }
+      .online-badge-blg {
+        background: rgba(76, 175, 80, 0.2);
+        color: #4caf50;
+        padding: 0.3rem 0.8rem;
+        border-radius: 2px;
+        font-size: 0.85rem;
+      }
+      .chat-messages-blg {
+        flex: 1;
+        background: var(--bg-panel);
+        border: 1px solid var(--border-color);
+        border-radius: 4px;
+        padding: 1rem;
+        overflow-y: auto;
+        display: flex;
+        flex-direction: column;
+        gap: 0.6rem;
+      }
+      .msg-blg {
+        max-width: 80%;
+        padding: 0.7rem 1rem;
+        border-radius: 4px;
+        font-size: 0.95rem;
+      }
+      .msg-blg.user {
+        align-self: flex-start;
+        background: #222;
+        border-left: 3px solid var(--accent-orange);
+      }
+      .msg-blg.self {
+        align-self: flex-end;
+        background: var(--accent-orange);
+        color: #000;
+      }
+      .msg-author-blg {
+        font-weight: 600;
+        color: var(--accent-gold);
+        font-size: 0.85rem;
+      }
+      .msg-time-blg {
+        font-size: 0.75rem;
+        color: #666;
+        margin-left: 0.5rem;
+      }
+      .system-msg-blg {
+        text-align: center;
+        color: var(--text-muted);
+        font-style: italic;
+        font-size: 0.85rem;
+        margin: 0.5rem 0;
+      }
+      .chat-input-area-blg {
+        margin-top: 1rem;
+      }
+      .typing-indicator-blg {
+        height: 1.2rem;
+        font-size: 0.8rem;
+        color: var(--text-muted);
+        margin-bottom: 0.3rem;
+      }
+      #chatForm-blg {
+        display: flex;
+        gap: 0.5rem;
+      }
+      #chatInput-blg {
+        flex: 1;
+        padding: 0.8rem;
+        background: #0a0a0a;
+        border: 1px solid #333;
+        color: var(--text-white);
+        border-radius: 2px;
+      }
+      #chatInput-blg:focus {
+        outline: none;
+        border-color: var(--accent-orange);
+      }
+      .btn-send-chat {
+        background: var(--accent-orange);
+        color: #000;
+        border: none;
+        padding: 0 1.5rem;
+        border-radius: 2px;
+        cursor: pointer;
+        font-family: var(--font-main);
+        font-weight: 700;
+        text-transform: uppercase;
+      }
+    </style>
   </head>
-  <body class="tactical-theme">
+  <body>
     <div id="app-navbar"></div>
-
-    <main class="chat-layout">
-      <header class="chat-header">
-        <h2>📻 Canale Radio Generale</h2>
-        <span id="onlineCount" class="online-badge">🟢 0 online</span>
+    <main class="chat-blg">
+      <header class="chat-header-blg">
+        <h2>CANALE RADIO GENERALE</h2>
+        <span id="onlineCount" class="online-badge-blg">🟢 0 ONLINE</span>
       </header>
-
-      <div id="chatMessages" class="chat-messages">
-        <p class="system-msg">📡 Connessione al canale radio...</p>
+      <div id="chatMessages" class="chat-messages-blg">
+        <p class="system-msg-blg">📡 Connessione al canale radio...</p>
       </div>
-
-      <div class="chat-input-area">
-        <div id="typingIndicator" class="typing-indicator"></div>
-        <form id="chatForm">
+      <div class="chat-input-area-blg">
+        <div id="typingIndicator" class="typing-indicator-blg"></div>
+        <form id="chatForm-blg">
           <input
             type="text"
-            id="chatInput"
+            id="chatInput-blg"
             placeholder="Trasmetti messaggio..."
             autocomplete="off"
           />
-          <button type="submit" class="btn-primary">📤 Invia</button>
+          <button type="submit" class="btn-send-chat">INVIA</button>
         </form>
       </div>
     </main>
-
-    ⚠️ IMPORTANTE: Socket.io DEVE essere caricato PRIMA di chat.js
     <script src="https://cdn.socket.io/4.7.5/socket.io.min.js"></script>
     <script src="/js/chat.js"></script>
     <script src="/js/navbar.js"></script>
